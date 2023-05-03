@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="stilos.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <title>Document</title>
+</head>
+<body>
+  <header>    
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">
+            <img src="./img/automotive.jpg" alt="logonavar" width="50px">
+        </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="WebPrincipal.html">NOSOTROS</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="WebContacto.html">CONTÁCTENOS</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="WebProducto3copy.php">PRODUCTOS</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link " href="Index2.html"><img src="./img/Ico_Login.png" alt="Login" width="30px"></a>
+              </li>
+            </ul>
+            <form class="d-flex" role="search">
+              <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
+              <button class="btn btn-light " type="submit"><img src="./img/Icon_Buscar.png" alt="Ico_buscar" width="30px"></button>
+            </form>
+          </div>
+        </div>
+      </nav>
+      <div>
+        <img src="./img/Contacto_true.png" class="img-fluid p-5" width="100%" alt="Contacto" >
+        <p class=" bg-primary text-white text-center" > <img src="./img/Icon_Asesor.png" alt="Asesor" width="70" > CONTACTATE CON UN ASESOR ESPECIALIZADO</p>
+        </header>
+      </div>
+      <form action="Insertarregistrosform.php" method="post">
+      <div class="" style=" padding-left: 40%;">
+        <div class="mb-3 ">
+          <label for="exampleFormControlInput1" class="form-label">Nombre</label>
+          <input type="text" class="form-control w-50"  name="txtNomb" id="exampleFormControlInput1" placeholder="Ingrese su nombre">
+        </div>
+        <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label">DNI</label>
+          <input type="text" class="form-control w-50" name="txtDNI" id="exampleFormControlInput1" placeholder="DNI:60000000">
+        </div>
+        <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label">Telefono</label>
+          <input type="text" class="form-control w-50" name="txtTele" id="exampleFormControlInput1" placeholder="999999999">
+        </div>
+        <div class="mb-3">
+          <label for="exampleFormControlInput1" class="form-label">Correo Electronico</label>
+          <input type="text" class="form-control w-50" name="txtCore" id="exampleFormControlInput1" placeholder="nombre@gmail.com">
+        </div>
+     
+        <div class="mb-3">
+          <label for="exampleFormControlTextarea1" class="form-label">Mensaje</label>
+          <textarea class="form-control w-50" name="txtMens" id="exampleFormControlTextarea1"  rows="3" placeholder="Escribe tu mensaje"></textarea>
+        </div>
+        <div class="mb-3" >
+          <button type="submit" id="exampleFormControlTextarea1" class="btn btn-danger w-50 fs-5" >Enviar</button>
+        </div>
+      </div>
+     </form>
+      <div>
+        <p class=" bg-primary text-white text-center" > <img src="./img/Ico_Maps.png" alt="Asesor" width="70">UBICANOS</p>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3901.5642605735966!2d-77.01863588518714!3d-12.073473291449483!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105c89b54856861%3A0x4bee69201c84baf1!2sAv.%20M%C3%A9xico%20%26%20Av.%20Parinacochas%2C%20La%20Victoria%2015018!5e0!3m2!1ses!2spe!4v1655450721635!5m2!1ses!2spe" width="100%" height="750" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="p-5"></iframe>
+      </div>
+
+      <footer>
+        <div class="contenedor-footer">
+          <div class="content-foo">
+              <h4>Phone</h4>
+              <p>981110622</p>
+          </div>
+          <div class="content-foo">
+              <h4>Email</h4>
+              <p>Carlos.G.Nicho@gmail.com</p>
+          </div>
+          <div class="content-foo">
+              <h4>Location</h4>
+              <p>Los Olivos</p>
+          </div>
+
+      </div>
+      <h2 class="titulo-final">&copy; Nicho Beltan Carlos Gustavo</h2>
+      </footer>
+   
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

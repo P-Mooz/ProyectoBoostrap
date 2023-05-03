@@ -1,0 +1,103 @@
+Problemas
+EN LA WEB DE PROCUTOS NO MUESTRA LA IMAGEN, PROBLEMA SOLO EN MOSTRAR, HIPOTESIS LA RUTA ESTA MAL. -- ubicado en WebProducto3copy.php
+
+Crud-
+Solucionado.
+
+
+Base datos -- 
+
+Hay procedimientos alamcenados que no sirven- opciones --> 1 eliminar, 2-editarlos como corresponde para reciclar. 
+tabla proveedores- eliminar.
+tabla detalles ventas es para la factura - crear select con inner join
+
+tabla contacto - es el 1er filtro antes de concretar la compra
+tabla ventas - segundo filtro para saber la fecha.
+
+
+
+
+
+
+
+
+
+PROCESO: 
+
+1- WEB LLANTAS
+2-IR CARRITO- Ventana - 
+Fecha
+3-
+
+
+SI O SI VA TENER QUE REGISTRAR O NO VA SER NECESARIO 
+Formulario Pre Venta-
+
+
+
+1-- Filtro Tabla Cliente 
+
+ID CLI
+NOMBRE
+TELEFONO  ---------- llena nuestra tabla cliente
+CORREO
+DNI O RUC 
+
+2------ segundo filtro tabla venta 
+
+Num Venta - AutoIncrementable
+Fecha de pedido
+Fecha entrega
+Id-CLi -- NO NULL
+
+click "COMPRAR"
+-----------------------------
+
+la boleta de Compra
+
+tabla Detalle ventas
+
+Num venta
+Id Producto
+Can
+Precio
+
+
+siguiente
+---------------------------
+
+NomCli
+Telefono
+Correo
+Ruc O dni 
+
+Comprar - se finaliza boleta 
+
+Caracteristica
+
+Cookies-
+Sesión
+
+variable temporal
+Sesiones y coouies en php
+
+procedimiento almacenado 
+(
+Numventa numero boleta
+Cod Cliente
+Codigo del Producto
+Nombre del cliente
+DNI O RUC 
+producto
+Fecha
+precio producto  
+Total incluye el IGV
+)
+
+
+añadir 
+id producto
+
+SOLUCIONES
+1-Crear EL carrito de compra
+2.corregir redudancia en la BD.
