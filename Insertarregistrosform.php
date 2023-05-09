@@ -26,10 +26,10 @@
  text: "Información Guardada Correctamente",
  type: "success"
  }).then(function() {
- window.location = "ListadoContacto.php";
+ window.location = "WebPrincipal.html";
  });
  </script>';
-
+// cambiando la linea 29 donde muestra la informacion de contacto  window.location = "ListadoContacto.php";
     }
     else
     {

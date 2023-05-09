@@ -11,7 +11,7 @@ $result=mysqli_query($conn,$sql);
 $filas=mysqli_num_rows($result);
 
 if($filas){
-    header("location:Dashboard.html");
+    header("location:Dashboard.php");
 }else{                    //  ./img/Ico_Login.png  ---- ./Mantenimiento/Cliente/Cliente.php
     ?>
     <?php

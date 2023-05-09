@@ -1,4 +1,13 @@
-<!-- Coding by CodingLab | www.codinglabweb.com -->
+<?php
+require('conexionBdConcesionario.php');
+$conn=mysqli_connect($server, $user, $pass, $bd);
+$sql = "select * from ventas";
+$query=mysqli_query($conn,$sql);
+$row=mysqli_fetch_array($query);
+
+//echo '<a href="Detalle_Venta.html">Agregar</a><p>';
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,15 +15,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
+  
+   
+
     <!----======== CSS ======== -->
     <link rel="stylesheet" href="styleDash.css">
     
     <!----===== Boxicons CSS ===== -->
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+
+    
     
     <title>Dashboard Automotive</title> 
 </head>
 <body>
+     
     <nav class="sidebar close">
         <header>
             <div class="image-text">
@@ -24,7 +39,7 @@
 
                 <div class="text logo-text">
                     <span class="name">Automotive</span>
-                    <span class="profession">Nicho-Beltran Web</span>
+                    <span class="profession">Web</span>
                 </div>
             </div>
 
@@ -69,9 +84,9 @@
                     </li>
 
                     <li class="nav-link">
-                        <a href="#">
+                        <a href="ListadoDetalle_Ventas.php">
                             <i class='bx bx-heart icon' ></i>
-                            <span class="text nav-text">Likes</span>
+                            <span class="text nav-text">Ventas</span>
                         </a>
                     </li>
 
@@ -111,7 +126,40 @@
     </nav>
 
     <section class="home">
-        <div class="text">Contenido de Ventas</div>
+        <div class="text">
+            <?php
+require('ConexionBdConcesionario.php');
+$sql = "CALL ListaContactos";
+$result = $conn->query($sql);
+echo '<h2>Lista de Contactos</h2>';
+## echo '<a href="Contactos.html">Agregar</a><p>';
+
+if ($result->num_rows > 0) 
+{
+echo "<table border=1><tr><th>Dni</th><th>Nombre</th>
+      <th>Telefono</th><th>Correo</th><th>Mensaje</th>
+      <th>Acciones</th></tr>";
+
+while ($row = $result->fetch_assoc()) 
+{
+ echo "<tr><td><center>".$row["Dni"]."</center></td>
+       <td><center>".$row["Nombre"]."</center></td><td><center>";
+ echo $row["Telefono"]."</center></td><td><center>";
+ echo $row["Correo"]."</center></td><td><center>";
+ echo $row["Mensaje"]."</center></td><td><center>";
+ //echo "<a href=EditarContacto.php?cod=".$row["Dni"].">Editar</a>";
+ //echo "<a href=EliminarContacto.php?cod=".$row["Dni"].">Eliminar</a></td></tr>"
+ echo "<a href=?cod=".$row["Dni"].">Eliminar</a></td></tr>";
+}
+ echo ("</table>");
+}
+else
+{
+echo "No se muestra ningún resultado";
+}
+mysqli_close($conn);
+?>
+            </div>
     </section>
 
     <script src="Dashboard.js"></script>

@@ -129,7 +129,7 @@ if (!empty($_SESSION['cart'])) {
 	$pdf->AddPage();
 
 	# Logo de la empresa formato png #
-	$pdf->Image('./img/logo.png',165,12,35,35,'PNG');
+	$pdf->Image('./img/automotive2.png',165,12,35,35,'PNG');
 
 	# Encabezado y datos de la empresa #
 	$pdf->SetFont('Arial','B',16);
@@ -155,24 +155,24 @@ if (!empty($_SESSION['cart'])) {
 	$pdf->Cell(150,9,utf8_decode("Email: carlos.g.nicho@gmail.com"),0,0,'L');
 
 	$pdf->Ln(10);
-
+	date_default_timezone_set("America/Lima");
 	$pdf->SetFont('Arial','',10);
-	$pdf->Cell(30,7,utf8_decode("Fecha de emisión:"),0,0);
+	$pdf->Cell(30,7,utf8_decode("Fecha de emisión: "),0,0);
 	$pdf->SetTextColor(97,97,97);
-	$pdf->Cell(116,7,utf8_decode(date("d/m/Y", strtotime("13-09-2022"))." ".date("h:s A")),0,0,'L');
+	$pdf->Cell(116,7,utf8_decode(date("d/m/Y h:i a")),0,0,'L');
 	$pdf->SetFont('Arial','B',10);
 	$pdf->SetTextColor(39,39,51);
-	$pdf->Cell(35,7,utf8_decode(strtoupper("Factura Nro.")),0,0,'C');
+	$pdf->Cell(35,7,utf8_decode(strtoupper("Comprobante de Pago")),0,0,'C');
 
 	$pdf->Ln(7);
 
 	$pdf->SetFont('Arial','',10);
 	$pdf->Cell(12,7,utf8_decode("Cajero:"),0,0,'L');
 	$pdf->SetTextColor(97,97,97);
-	$pdf->Cell(134,7,utf8_decode("Carlos Alfaro"),0,0,'L');
+	$pdf->Cell(134,7,utf8_decode("Carlos Gustavo Nicho Beltran"),0,0,'L');
 	$pdf->SetFont('Arial','B',10);
 	$pdf->SetTextColor(97,97,97);
-	$pdf->Cell(35,7,utf8_decode(strtoupper("1")),0,0,'C');
+	$pdf->Cell(35,7,utf8_decode(strtoupper("")),0,0,'C'); // aqui puede ir una variable con un numero random
 
 	$pdf->Ln(10);
 
@@ -222,9 +222,9 @@ if (!empty($_SESSION['cart'])) {
 	/*----------  Detalles de la tabla  ----------*/
 	$pdf->Cell(90,7,utf8_decode($nom),'L',0,'C');
 	$pdf->Cell(15,7,utf8_decode($cantidad),'L',0,'C');
-	$pdf->Cell(25,7,utf8_decode("$ ".$precio."USD"),'L',0,'C');
+	$pdf->Cell(25,7,utf8_decode("$ ".$precio.".00 USD"),'L',0,'C');
 	$pdf->Cell(19,7,utf8_decode("$0.00 USD"),'L',0,'C'); 
-	$pdf->Cell(32,7,utf8_decode("$".$total),'LR',0,'C');
+	$pdf->Cell(32,7,utf8_decode("$".$total.".00"),'LR',0,'C');
 	$pdf->Ln(7);
 	/*----------  Fin Detalles de la tabla  ----------*/
 
@@ -280,7 +280,7 @@ if (!empty($_SESSION['cart'])) {
 	$pdf->SetFont('Arial','',9);
 
 	$pdf->SetTextColor(39,39,51);
-	$pdf->MultiCell(0,9,utf8_decode("*** Precios de productos incluyen impuestos. Para poder realizar un reclamo o devolución debe de presentar esta factura ***"),0,'C',false);
+	$pdf->MultiCell(0,9,utf8_decode("*** Precios de productos incluyen impuestos. Para realizar algun reclamo debe presentar este Comprobante de pago ***"),0,'C',false);
 
 	$pdf->Ln(9);
 
@@ -293,7 +293,7 @@ if (!empty($_SESSION['cart'])) {
 	$pdf->MultiCell(0,5,utf8_decode("COD000001V0001"),0,'C',false);
 
 	# Nombre del archivo PDF #
-	$pdf->Output("I","Factura_Nro_1.pdf",true);
+	$pdf->Output("I","Comprobante_de_Pago.pdf",true);
 
 
 

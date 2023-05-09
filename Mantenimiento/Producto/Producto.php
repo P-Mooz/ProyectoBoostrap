@@ -73,7 +73,7 @@
                                     </select>
                                     
                                     <input type="submit" class="btn btn-primary">
-                                    <a class="btn btn-danger btn-block"  href="../../Dashboard.html">Menu </a>
+                                    <a class="btn btn-danger btn-block"  href="../../Dashboard.php">Menu </a>
                                 </form>
                         </div>
 

@@ -1,36 +1,68 @@
 <?php
-require('ConexionBdConcesionario.php');
-$sql = "CALL ListaDetalle_Ventas";
-$result = $conn->query($sql);
-echo '<h2>Lista de Detalles de Venta</h2>';
-echo '<a href="Detalle_Venta.html">Agregar</a><p>';
+require('conexionBdConcesionario.php');
+$conn=mysqli_connect($server, $user, $pass, $bd);
+$sql = "select * from ventas";
+$query=mysqli_query($conn,$sql);
+$row=mysqli_fetch_array($query);
 
-if ($result->num_rows > 0) 
-{
-echo "<table border=1><tr><th>N° Venta</th><th>Id Cliente</th>
-      <th>Nombre de Cliente</th><th>Ruc</th><th>Id Producto</th><th>Nombre</th>
-      <th>Precio</th><th>Monto Total</th><th>Fecha de Pedido</th>
-      <th>Acciones</th></tr>";
+//echo '<a href="Detalle_Venta.html">Agregar</a><p>';
 
-while ($row = $result->fetch_assoc()) 
-{
- echo "<tr><td><center>".$row["NumVenta"]."</center></td>
-       <td><center>".$row["IdCli"]."</center></td><td><center>";
- echo $row["NomCli"]."</center></td><td><center>";
- echo $row["Ruc"]."</center></td><td><center>";
- echo $row["IdProd"]."</center></td><td><center>";
- echo $row["NomProd"]."</center></td><td>";
- echo $row["Precio"]."</center></td><td>";
- echo $row["MontoTotal"]."</center></td><td>";
- echo $row["FechaPed"]."</center></td><td>";
- echo "<a href=EditarDetalle_Venta.php?cod=".$row["NumVenta"].">Editar</a>";
- echo "<a href=EliminarDetalle_Venta.php?cod=".$row["NumVenta"].">Eliminar</a></td></tr>";
-}
- echo ("</table>");
-}
-else
-{
-echo "No se muestra ningún resultado";
-}
-mysqli_close($conn);
 ?>
+
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Detalle_de_Ventas</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+        
+    </head>
+    <body>
+      
+            <div class="container mt-5">
+                    <div class="row"> 
+
+                        <div class="col-md-8">
+                      
+                         <?php echo '<h2> Detalles de Ventas</h2>'; ?>  <a class="btn btn-danger btn-block"  href="Dashboard.php">Menu </a>
+                            <table class="table" >
+                                <thead class="table-success table-striped" >
+                                    <tr>
+                                        <th>Codigo</th>
+                                        <th>Nombre</th>
+                                        <th>Precio</th>
+                                        <th>Cantidad</th>
+                                        <th>Sub Total</th>
+                                        <th>IGV</th>
+                                        <th>Monto Total</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                        <?php
+                                            while($row=mysqli_fetch_array($query)){
+                                        ?>
+                                            <tr>
+                                                <th><?php  echo $row['idventa']?></th>
+                                                <th><?php  echo $row['NomProd']?></th> 
+                                                <th><?php  echo $row['Precio2']?></th>
+                                                <th><?php  echo $row['cantidad']?></th>
+                                                <th><?php  echo $row['Subtotal']?></th>
+                                                <th><?php  echo $row['IGV']?></th>
+                                                <th><?php  echo $row['MontoTotal']?></th>  
+                                                                             
+                                            </tr>
+                                        <?php 
+                                            }
+                                        ?>
+                                </tbody>
+                               
+                            </table>
+                        </div>
+                    </div>  
+            </div>
+    </body>
+</html>
