@@ -35,12 +35,13 @@
         
             <?php
                     $conn = require('ConexionBdConcesionario.php');
-                     $query= mysqli_query($conexion,"SELECT * FROM cliente");
-                     $result = mysqli_num_rows($query);?>
+                     $query = mysqli_query($conexion,"SELECT IdCli FROM cliente");
+                     $result = mysqli_num_rows($query);
+                     ?>
 
             <?php while ($data = mysqli_fetch_assoc($query)) { ?>
               
-            <form action="RegistrarCliente.php?IdCli=<?php $data['IdCli'] ?>" method="post">
+            <form  method="post" action="RegistrarCliente.php?IdCli=<?php=$data['IdCli'] ?>">
             <?php  } ?>
             <!--Nav Barra de Menu<input type="datetime" name="txtfecha" value="tags php y valor de fehca" > -->
       
@@ -79,6 +80,13 @@
                             <div class="apellido text-danger"></div>
                         </div>
 
+                        <div class="mb-4">
+                            <label for="fecha"> <i class="bi bi-person-bounding-box"></i> Fecha
+                            </label>
+                            <input type="date" class="form-control" name="txtfecha" id="fecha"
+                                placeholder="ej: 14/05/2023 "required>
+                            <div class="apellido text-danger"></div>
+                        </div>
 
 
                         <div class="d-grid gap-2" >
@@ -88,9 +96,9 @@
 
                   
                 </div>
-                
+              
             </form>
-          
+            
         </div>
     </section>
     <script src="index.js"></script>

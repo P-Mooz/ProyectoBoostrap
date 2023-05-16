@@ -14,9 +14,13 @@
  $Tel = $_POST["txtTele"];
  $Corr = $_POST["txtCore"];
  $Mens = $_POST["txtMens"];
+ 
+
+ date_default_timezone_set("America/Lima");
+ $Fecha = date("Y/m/d h:i a");
 
 
- $sql = "CALL InsertaContacto('$Dn','$Nom','$Tel','$Corr','$Mens')";
+ $sql = "CALL InsertaContacto('$Dn','$Nom','$Tel','$Corr','$Mens','$Fecha')";
 
  if (mysqli_query($conn,$sql))
 {

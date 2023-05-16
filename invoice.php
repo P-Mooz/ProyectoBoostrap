@@ -1,7 +1,6 @@
 
-
 <?php
-
+require_once "conexion.php";
 session_start();
 
 // datos de cliente en sesiones.
@@ -17,12 +16,13 @@ if(isset($_POST['add_to_cliente'])){
                "NomCli" => $_POST['txtNomb'],
                "Telefono" =>$_POST['txtTele'],
                "Correo" =>$_POST['txtCore'],
-               "Ruc" =>$_POST['txtRuc']
+               "Ruc" =>$_POST['txtRuc'],
+			   "fecha" =>$_POST['fecha']
 
                
            );
            $_SESSION['cliente'][]=$session_array;
-           
+		   
         }
    }else {
        $session_array = array(
@@ -30,7 +30,8 @@ if(isset($_POST['add_to_cliente'])){
            "NomCli" => $_POST['txtNomb'],
            "Telefono" =>$_POST['txtTele'],
            "Correo" =>$_POST['txtCore'],
-           "Ruc" =>$_POST['txtRuc']
+           "Ruc" =>$_POST['txtRuc'],
+		   "fecha" =>$_POST['txtfecha']
        );
        $_SESSION['cliente'][]=$session_array;
        
@@ -41,16 +42,14 @@ if (!empty($_SESSION['cliente'])) {
   foreach ($_SESSION['cliente'] as $key => $value) {
  
 
-     // echo $value['idproducto'] ."<br>";
+     // $idcliente = $value['IdCli'];
       $nom_cli= $value['NomCli'];
       $telefono_cli=$value['Telefono'];
       $correo_cli =$value['Correo'];
       $dni_cli =$value['Ruc'];
+	  $fecha_cli =$value['fecha'];
   }            
 }
-
-
-
 
 
 
@@ -91,6 +90,7 @@ if (!empty($_SESSION['cart'])) {
    
 
        // echo $value['idproducto'] ."<br>";
+	  // $idprod =$value['idproducto'];
         $nom= $value['NomProducto'];
         $precio=$value['Precio2'];
         $cantidad =$value['quantity'];
@@ -103,11 +103,21 @@ if (!empty($_SESSION['cart'])) {
      
     }            
  }
-
+ 	$fecha = date("Y-m-d");
  			require('conexionBdConcesionario.php');
 				 $conn=mysqli_connect($server, $user, $pass, $bd);
 
-				$sql="INSERT INTO ventas (`NomProd`, `Precio2`, `cantidad`, `Subtotal`, `IGV`, `MontoTotal`) VALUES('$nom','$precio','$cantidad','$total','$igv','$total2')";
+ 				$sql2 =mysqli_query($conn,"Select * from cliente;");
+				 $result2 = mysqli_num_rows($sql2);
+			
+				  while ($data = mysqli_fetch_assoc($sql2)) { 
+					
+					
+					$idcliente = $data["IdCli"]; 
+						
+					 } 
+
+				$sql="INSERT INTO ventas (`NomProd`, `Precio2`, `cantidad`, `Subtotal`, `IGV`, `MontoTotal`, `fecha`, `IdCli`) VALUES('$nom','$precio','$cantidad','$total','$igv','$total2','$fecha','$idcliente')";
 				$query= mysqli_query($conn,$sql);
 
 

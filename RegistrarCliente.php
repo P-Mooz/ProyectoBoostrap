@@ -20,7 +20,8 @@ if(isset($_POST['add_to_cliente'])){
                "NomCli" => $_POST['txtNomb'],
                "Telefono" =>$_POST['txtTele'],
                "Correo" =>$_POST['txtCore'],
-               "Ruc" =>$_POST['txtRuc']
+               "Ruc" =>$_POST['txtRuc'],
+               "fecha" =>$_POST['txtfecha']
 
                
            );
@@ -33,7 +34,8 @@ if(isset($_POST['add_to_cliente'])){
            "NomCli" => $_POST['txtNomb'],
            "Telefono" =>$_POST['txtTele'],
            "Correo" =>$_POST['txtCore'],
-           "Ruc" =>$_POST['txtRuc']
+           "Ruc" =>$_POST['txtRuc'],
+           "fecha" =>$_POST['txtfecha']
        );
        $_SESSION['cliente'][]=$session_array;
        
@@ -45,10 +47,12 @@ if (!empty($_SESSION['cliente'])) {
  
 
      // echo $value['idproducto'] ."<br>";
+      $idcliente = $value['IdCli'];
       $nom_cli= $value['txtNomb'];
       $telefono_cli=$value['txtTele'];
       $correo_cli =$value['txtCore'];
       $dni_cli =$value['txtRuc'];
+      $fecha =$value['txtfecha'];
   }            
 }
 
@@ -63,11 +67,12 @@ if (!empty($_SESSION['cliente'])) {
  $Tele = $_POST["txtTele"];
  $Cor = $_POST["txtCore"];
  $Ru = $_POST["txtRuc"];
+ $fec = $_POST["txtfecha"];
 
  
 
 
- $sql = "CALL InsertaCliente('$Nombr','$Tele','$Cor','$Ru')";
+ $sql = "CALL InsertaCliente('$Nombr','$Tele','$Cor','$Ru','$fec')";
 
  if (mysqli_query($conn,$sql))
 {

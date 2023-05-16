@@ -1,9 +1,11 @@
 <?php
 require('conexionBdConcesionario.php');
 $conn=mysqli_connect($server, $user, $pass, $bd);
-$sql = "select * from ventas";
+$sql = "Select ventas.idventa, ventas.NomProd, ventas.cantidad, ventas.Precio2, ventas.MontoTotal, ventas.fecha, cliente.IdCli, cliente.NomCli, cliente.Ruc from ventas 
+inner join cliente on ventas.IdCli=cliente.IdCli";
 $query=mysqli_query($conn,$sql);
 $row=mysqli_fetch_array($query);
+
 
 //echo '<a href="Detalle_Venta.html">Agregar</a><p>';
 
@@ -31,36 +33,44 @@ $row=mysqli_fetch_array($query);
                             <table class="table" >
                                 <thead class="table-success table-striped" >
                                     <tr>
-                                        <th>Codigo</th>
-                                        <th>Nombre</th>
-                                        <th>Precio</th>
+                                        <th>Idventa</th>
+                                        <th>NombreProducto</th>
                                         <th>Cantidad</th>
-                                        <th>Sub Total</th>
-                                        <th>IGV</th>
-                                        <th>Monto Total</th>
+                                        <th>MontoTotal</th>
+                                        <th>IdCliente</th>
+                                        <th>NombreCliente</th>
+                                        <th>Ruc</th>
+                                        <th>Fecha</th>
+
+                                       
                                     </tr>
                                 </thead>
-
+                             
                                 <tbody>
                                         <?php
-                                            while($row=mysqli_fetch_array($query)){
+                                                    while($row=mysqli_fetch_array($query)){
+                                                       
                                         ?>
                                             <tr>
                                                 <th><?php  echo $row['idventa']?></th>
                                                 <th><?php  echo $row['NomProd']?></th> 
-                                                <th><?php  echo $row['Precio2']?></th>
                                                 <th><?php  echo $row['cantidad']?></th>
-                                                <th><?php  echo $row['Subtotal']?></th>
-                                                <th><?php  echo $row['IGV']?></th>
                                                 <th><?php  echo $row['MontoTotal']?></th>  
-                                                                             
+                                                <th><?php  echo $row['IdCli']?></th>
+                                                <th><?php  echo $row['NomCli']?></th>
+                                                <th><?php  echo $row['Ruc']?></th>  
+                                                <th><?php  echo $row['fecha']?></th>                              
                                             </tr>
                                         <?php 
+                                        
                                             }
+                                        
                                         ?>
+                                        
                                 </tbody>
                                
-                            </table>
+
+                               
                         </div>
                     </div>  
             </div>
