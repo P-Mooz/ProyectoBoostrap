@@ -52,11 +52,13 @@ $result = mysqli_num_rows($query3);
                                     width="30px"></a>
                         </li>
                     </ul>
+                    <!-- Para realizar un buscador
                     <form class="d-flex" role="search">
                         <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
                         <button class="btn btn-light" type="submit"><img src="./img/Icon_Buscar.png" alt="Ico_buscar"
                                 width="30px"></button>
                     </form>
+                    -->
                 </div>
             </div>
         </nav>

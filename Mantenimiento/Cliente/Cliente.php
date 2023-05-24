@@ -16,6 +16,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="css/style.css" rel="stylesheet">
+        <script type="text/javascript" src="../../excel.js"></script>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
         
     </head>
@@ -36,6 +37,7 @@
                                     
                                     <input type="submit" class="btn btn-primary ">
                                     <a class="btn btn-danger btn-block"  href="../../Dashboard.php">Menu </a>
+                                    <a class="btn btn-success my-3" onclick="exportTableToExcel('tblData','members-data');"> EXCEL</a>
                                     
                                  
                                     
@@ -44,7 +46,7 @@
                         </div>
 
                         <div class="col-md-8">
-                            <table class="table" >
+                            <table class="table" id="tblData" >
                                 <thead class="table-success table-striped" >
                                     <tr>
                                         <th>Codigo</th>

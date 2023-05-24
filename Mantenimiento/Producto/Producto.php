@@ -19,6 +19,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="css/style.css" rel="stylesheet">
+        <script type="text/javascript" src="../../excel.js"></script>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
         
     </head>
@@ -74,12 +75,14 @@
                                     
                                     <input type="submit" class="btn btn-primary">
                                     <a class="btn btn-danger btn-block"  href="../../Dashboard.php">Menu </a>
+                                    <a class="btn btn-success my-3" onclick="exportTableToExcel('tblData','members-data');"> EXCEL</a>
                                 </form>
+                                
                         </div>
 
                         <div class="col-md-8">
-                            <table class="table" >
-                                <thead class="table-success table-striped" >
+                            <table id="tblData" class="table table-hover" >
+                                          <thead class="table-success table-striped" >
                                     <tr>
                                         <th>Codigo</th>
                                         <th>Nombre</th>
@@ -109,11 +112,14 @@
                                                 <th><?php echo '<img width="50px" src="'.$row3['imagen'].'">'?></th>
                                                 <?php // FALTA MOSTRAR LA IMAGEN EN EL CRUD, ALPARECER NO ENCUENTRA DESTINO, FALTA LOS MATENIMIENTOS ADECUADOS PORQUE SE ACTUALIZO LA TABLA PRODUCTO ?>
                                                 <th><a href="actualizarProd.php?id=<?php echo $row3['idproducto'] ?>" class="btn btn-info">Editar</a></th>
-                                                <th><a href="deleteProd.php?id=<?php echo $row3['idproducto'] ?>" class="btn btn-danger">Eliminar</a></th>                                        
+                                                <th><a href="deleteProd.php?id=<?php echo $row3['idproducto'] ?>" class="btn btn-danger">Eliminar</a></th>   
+                                                                             
                                             </tr>
+                                           
                                         <?php 
                                             }
                                         ?>
+                                        
                                 </tbody>
                             </table>
                         </div>

@@ -19,6 +19,7 @@ $row=mysqli_fetch_array($query);
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="css/style.css" rel="stylesheet">
+        <script type="text/javascript" src="excel.js"></script>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
         
     </head>
@@ -29,10 +30,10 @@ $row=mysqli_fetch_array($query);
 
                         <div class="col-md-8">
                       
-                         <?php echo '<h2> Detalles de Ventas</h2>'; ?>  <a class="btn btn-danger btn-block"  href="Dashboard.php">Menu </a>
-                            <table class="table" >
-                                <thead class="table-success table-striped" >
-                                    <tr>
+                         <?php echo '<h2> Detalles de Ventas</h2>'; ?> 
+                            <table id="tblData" class="table table-bordered table-dark table-hover" >
+                                <thead class="" >
+                                    <tr class="table-dark">
                                         <th>Idventa</th>
                                         <th>NombreProducto</th>
                                         <th>Cantidad</th>
@@ -69,10 +70,15 @@ $row=mysqli_fetch_array($query);
                                         
                                 </tbody>
                                
-
-                               
+                                
+                                
                         </div>
                     </div>  
+                    <a class="btn btn-danger my-3 btn-block"  href="Dashboard.php">Menu </a>
+            <button class="btn btn-success my-3" onclick="exportTableToExcel('tblData','members-data');"> EXCEL</button>
             </div>
+           
     </body>
+            
+    
 </html>
